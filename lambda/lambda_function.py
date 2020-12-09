@@ -48,6 +48,7 @@ class InvalidConfigInterceptor(AbstractRequestInterceptor):
     def process(self, handler_input):
         try:
             load_dotenv()
+            env_variable = os.environ['TEST_ENV_VARIABLES']
             handler_input.attributes_manager.request_attributes["invalid_config"] = False
         except:
             handler_input.attributes_manager.request_attributes["invalid_config"] = True
